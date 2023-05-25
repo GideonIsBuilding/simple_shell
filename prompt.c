@@ -17,6 +17,8 @@ void launch_prompt(char **av, char **env)
         ssize_t num_char;
         char *args[] = {NULL, NULL};
         pid_t child_pid;
+	char  error_msg[] = "./shell: No such file or directory\n";
+        int err_msg_length = sizeof(error_msg) - 1;
 
 
         while (1)
@@ -58,7 +60,8 @@ void launch_prompt(char **av, char **env)
                 if (child_pid == 0)
                 {
 			if (execve(args[0],args,env) == -1)
-				printf("%s: No such file or directory\n", av[0]);
+			/*printf("%s: No such file or directory\n", av[0]);*/
+				write(STDOUT_FILENO, error_msg, err_msg_length);
 		}
 		else
 			wait(&status);
