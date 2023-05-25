@@ -11,7 +11,7 @@
 void launch_prompt(char **av, char **env)
 {
 	char *input_string = NULL;
-	int i,status;
+	int i, status;
 	size_t n = 0;
 	ssize_t num_char;
 	char *args[] = {NULL, NULL};
@@ -22,9 +22,8 @@ void launch_prompt(char **av, char **env)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO)) /*solves for interactive use*/
-                /*printf("cisnotfun$ ");*/
+			/*printf("cisnotfun$ ");*/
 			write(STDOUT_FILENO, "#cisfun$ ", 9);
-		
 		num_char = getline(&input_string, &n, stdin);
 		if (num_char == -1)
 		{
@@ -40,16 +39,16 @@ void launch_prompt(char **av, char **env)
 			}
 
                         i++;
-                }
+		}
 
 
 		args[0] = input_string;
-                child_pid = fork();
-                if (child_pid == -1)
-                {
-                        free(input_string);
-                        exit(EXIT_FAILURE);
-                }
+		child_pid = fork();
+		if (child_pid == -1)
+		{
+			free(input_string);
+			exit(EXIT_FAILURE);
+		}
 
 		if (child_pid == 0)
 		{
