@@ -47,8 +47,20 @@ void launch_prompt(char **av, char **env)
                 }
 
 
+		args[0] = input_string;
+                child_pid = fork();
+                if (child_pid == -1)
+                {
+                        free(input_string);
+                        exit(EXIT_FAILURE);
+                }
 
-
-
-
-
+                if (child_pid == 0)
+                {
+			if (execve(args[0],args,env) == -1)
+				printf("%s: No such file or directory\n", av[0]);
+		}
+		else
+			wait(&status);
+	}
+}
