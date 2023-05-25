@@ -10,7 +10,7 @@
 
 void launch_prompt(char **av, char **env)
 {
-	char *input_string = NULL;
+	char* input_string = NULL;
 	int i, status;
 	size_t n = 0;
 	ssize_t num_char;
@@ -19,11 +19,13 @@ void launch_prompt(char **av, char **env)
 	char  error_msg[] = "./shell: No such file or directory\n";
 	int err_msg_length = sizeof(error_msg) - 1;
 
+	(void)av;
+
 	while (1)
 	{
 		if (isatty(STDIN_FILENO)) /*solves for interactive use*/
 			/*printf("cisnotfun$ ");*/
-			write(STDOUT_FILENO, "#cisfun$ ", 9);
+			write(STDOUT_FILENO, "#cisnotfun$ ", 12);
 		num_char = getline(&input_string, &n, stdin);
 		if (num_char == -1)
 		{
