@@ -10,7 +10,7 @@
 
 void launch_prompt(char **av, char **env)
 {
-	char* input_string = NULL;
+	char *input_string = NULL;
 	int i, status;
 	size_t n = 0;
 	ssize_t num_char;
@@ -34,13 +34,12 @@ void launch_prompt(char **av, char **env)
 		}
 		i = 0;
 		while (input_string[i]) /* (input_string !==NULL*/
-                {
+		{
 			if (input_string[i] == '\n')
 			{
 				input_string[i] = '\0';
 			}
-
-                        i++;
+			i++;
 		}
 
 
@@ -54,7 +53,7 @@ void launch_prompt(char **av, char **env)
 
 		if (child_pid == 0)
 		{
-			if (execve(args[0],args,env) == -1)
+			if (execve(args[0], args, env) == -1)
 			/*printf("%s: No such file or directory\n", av[0]);*/
 				write(STDOUT_FILENO, error_msg, err_msg_length);
 		}
