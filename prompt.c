@@ -8,7 +8,7 @@
  */
 
 
-void launch_prompt(char **av, char **env)
+void launch_prompt(char **av __attribute__((unused)), char **env)
 {
 	int i;
 	char *input_string = NULL;
