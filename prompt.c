@@ -10,28 +10,18 @@
 
 void launch_prompt(char **av, char **env)
 {
+	int i;
 	char *input_string = NULL;
-	int i, status;
-	size_t n = 0;
-	ssize_t num_char;
 	char *args[] = {NULL, NULL};
-	pid_t child_pid;
-	char  error_msg[] = "./shell: No such file or directory\n";
-	int err_msg_length = sizeof(error_msg) - 1;
 
 	(void)av;
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO)) /*solves for interactive use*/
-			/*printf("cisnotfun$ ");*/
 			write(STDOUT_FILENO, "#cisnotfun$ ", 12);
-		num_char = getline(&input_string, &n, stdin);
-		if (num_char == -1)
-		{
-			free(input_string);
-			exit(EXIT_FAILURE);
-		}
+		input_string = reading_input();
+
 		i = 0;
 		while (input_string[i]) /* (input_string !==NULL*/
 		{
@@ -44,20 +34,7 @@ void launch_prompt(char **av, char **env)
 
 
 		args[0] = input_string;
-		child_pid = fork();
-		if (child_pid == -1)
-		{
-			free(input_string);
-			exit(EXIT_FAILURE);
-		}
+		exec_cmd(input_string, args, env);
 
-		if (child_pid == 0)
-		{
-			if (execve(args[0], args, env) == -1)
-			/*printf("%s: No such file or directory\n", av[0]);*/
-				write(STDOUT_FILENO, error_msg, err_msg_length);
-		}
-		else
-			wait(&status);
 	}
 }

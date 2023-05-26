@@ -9,6 +9,8 @@
 #include <sys/wait.h>
 
 void launch_prompt(char **av, char **envv);
+char *reading_input(void);
+void exec_cmd(char *input_string, char **args, char **env);
 
 
 
