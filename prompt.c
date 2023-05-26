@@ -45,6 +45,7 @@ void launch_prompt(char **av __attribute__((unused)), char **env)
 
 		args[0] = input_string;
 		exec_cmd(input_string, args, env);
+		free(input_string);
 
 	}
 }
