@@ -22,6 +22,16 @@ void launch_prompt(char **av __attribute__((unused)), char **env)
 			write(STDOUT_FILENO, "#cisnotfun$ ", 12);
 		input_string = reading_input();
 
+		if (input_string == NULL) /*EOF condition */
+		{
+			if (isatty(0))
+			{
+				write(STDOUT_FILENO, "\n", 1);
+			}
+			free(input_string);
+			exit(EXIT_FAILURE);
+		}
+
 		i = 0;
 		while (input_string[i]) /* (input_string !==NULL*/
 		{
