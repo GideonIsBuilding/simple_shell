@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-void launch_prompt(char **av, char **envv);
+void launch_prompt(char **av, char **envv) __attribute__((unused));
 char *reading_input(void);
 void exec_cmd(char *input_string, char **args, char **env);
 
