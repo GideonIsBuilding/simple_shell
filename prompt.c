@@ -10,7 +10,7 @@
 
 void launch_prompt(char **av __attribute__((unused)), char **env)
 {
-	int i;
+	int i, j;
 	char *input_string = NULL;
 	char *args[] = {NULL, NULL};
 
@@ -22,16 +22,6 @@ void launch_prompt(char **av __attribute__((unused)), char **env)
 			write(STDOUT_FILENO, "#cisnotfun$ ", 12);
 		input_string = reading_input();
 
-		if (input_string == NULL) /*EOF condition */
-		{
-			if (isatty(0))
-			{
-				write(STDOUT_FILENO, "\n", 1);
-			}
-			free(input_string);
-			exit(EXIT_FAILURE);
-		}
-
 		i = 0;
 		while (input_string[i]) /* (input_string !==NULL*/
 		{
@@ -42,8 +32,11 @@ void launch_prompt(char **av __attribute__((unused)), char **env)
 			i++;
 		}
 
+		j = 0;
+		args[j] = str_tok(input_string, " ");
+		while (args[j])
+			args[++j] = str_tok(NULL, " ");
 
-		args[0] = input_string;
 		exec_cmd(input_string, args, env);
 		free(input_string);
 
