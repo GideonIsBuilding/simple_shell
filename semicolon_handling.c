@@ -51,15 +51,13 @@ void handle_semicolon(char *input)
 int delim_token(char *input, char **tokens, int max_tokens, char *delim)
 {
 	int num_tokens = 0;
-	char *token = strtok(input, delim); 
+	char *token = strtok(input, delim);
 	while (token != NULL && num_tokens < max_tokens)
 	{
-		tokens[num_tokens] = token; 
-		num_tokens++; 
-		token = strtok(NULL, delim); 
+		tokens[num_tokens] = token;
+		num_tokens++;
+		token = strtok(NULL, delim);
 	}
 	tokens[num_tokens] = NULL;
-	return (num_tokens); 
+	return (num_tokens);
 }
-
-
