@@ -46,6 +46,8 @@ int custom_putenv(char *str)
 int custom_setenv(const char *name, const char *value, int overwrite)
 char *custom_strchr(const char *str, int c)
 int custom_environSize(void)
+unsigned int is_delim(char c, char *delim)
+char *my_strtok(char *srcString, char *delim)
 
 #endif
 
