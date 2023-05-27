@@ -122,7 +122,6 @@ char *get_env(const char *name)
 	for (i = 0; environ[i] != NULL; i++)
 	{
 		if (Strn_cmp(name, environ[i], len) == 0 && environ[i][len] == '=')
-		
 		{
 			env_val = &environ[i][len + 1];
 			return (env_val);
