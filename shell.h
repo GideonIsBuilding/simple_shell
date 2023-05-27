@@ -30,7 +30,16 @@ char *expand_buffer(char *buf, size_t buf_size)
 int is_empty_line(ssize_t len, char *buf)
 int handle_empty_line(char *buf, char **lineptr)
 void terminate_buffer(ssize_t len, char *buf)
-
+char *strd_up(const char *str)
+int Strn_cmp(const char *s1, const char *s2, size_t n)
+char *Str_cat(char *dest, const char *src)
+char *Str_cpy(char *dest, const char *src)
+char *concat_str(char *str1, char *str2)
+int my_strcmp(const char *str1, const char *str2)
+void writeStringToStderr(char *str)
+int StringLength(const char *str)
+void printStr(char *str)
+char *reading_input()
 
 #endif
 

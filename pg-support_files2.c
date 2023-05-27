@@ -1,15 +1,17 @@
 #include "shell.h"
+
 /**
  * concat_str - joins two strings together
  * @str1: string concetenated
  * @str2: string joined to str1
  * Return: str1 and str2 combined
  */
+
 char *concat_str(char *str1, char *str2)
 {
 	int len1 = StringLength(str1);
 	int len2 = StringLength(str2);
-	char *result = malloc(len1 + len2 + 1); /* add one for null terminator */
+	char *result = malloc(len1 + len2 + 1);
 
 	if (result == NULL)
 	{
@@ -27,9 +29,10 @@ char *concat_str(char *str1, char *str2)
  * @src: string copied
  * Return: string copied
  */
+
 char *Str_cpy(char *dest, const char *src)
 {
-	char *originalDest = dest; /* save the original pointer to dest */
+	char *originalDest = dest;
 
 	while (*src != '\0')
 	{
@@ -47,9 +50,10 @@ char *Str_cpy(char *dest, const char *src)
  * @src: string constant
  * Return: joined string
  */
+
 char *Str_cat(char *dest, const char *src)
 {
-	char *originalDest = dest;/* save the original pointer to dest */
+	char *originalDest = dest;
 
 	while (*dest != '\0')
 	{
@@ -87,11 +91,13 @@ int Strn_cmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
+
 /**
  * strd_up - copies the contents of the input string str to the new memory
  * @str: string copied
  * Return: a pointer to the new string.
  */
+
 char *strd_up(const char *str)
 {
 	size_t len = StringLength(str) + 1;
