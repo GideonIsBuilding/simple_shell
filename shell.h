@@ -13,6 +13,7 @@ char *reading_input(void);
 void exec_cmd(char *input_string, char **args, char **env);
 int cmp_chars(char str[], const char *delim);
 int str_len(const char *s);
+void free_char_array(char **args);
 char *str_tok(char *str, const char *delim);
 
 
