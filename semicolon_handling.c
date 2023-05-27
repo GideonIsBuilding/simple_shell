@@ -52,6 +52,7 @@ int delim_token(char *input, char **tokens, int max_tokens, char *delim)
 {
 	int num_tokens = 0;
 	char *token = strtok(input, delim);
+
 	while (token != NULL && num_tokens < max_tokens)
 	{
 		tokens[num_tokens] = token;
