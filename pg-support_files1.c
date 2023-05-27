@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * reading_input: reads input via getline
+ * reading_input - reads input via getline
  * Return: Returns input from standard output
  */
 
@@ -19,7 +19,7 @@ char *reading_input()
 }
 
 /**
- * printStr: writes/print string to stdin
+ * printStr - writes/print string to stdin
  * @str: string written
  * Return: Void
  */
@@ -32,7 +32,7 @@ void printStr(char *str)
 }
 
 /**
- * StringLength: count no. of characters in a string
+ * StringLength - count no. of characters in a string
  * @str: string whose length is calculated
  * Return: Length of string
  */
