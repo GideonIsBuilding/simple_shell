@@ -40,6 +40,9 @@ void writeStringToStderr(char *str)
 int StringLength(const char *str)
 void printStr(char *str)
 char *reading_input()
+int custom_environSize(void)
+char *custom_strchr(const char *str, int c)
+int custom_putenv(char *str)
 
 #endif
 
