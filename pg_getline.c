@@ -6,7 +6,7 @@
  * my_getline - custom version of getline()
  * @lineptr: buffer stores strings
  * @n: buffer size
- * @fd: source 
+ * @fd: source
  *
  * Return: -1 or number of char's read
  */
