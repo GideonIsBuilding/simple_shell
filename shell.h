@@ -48,6 +48,7 @@ char *custom_strchr(const char *str, int c)
 int custom_environSize(void)
 unsigned int is_delim(char c, char *delim)
 char *my_strtok(char *srcString, char *delim)
+void execute_builtins(char **tokens, char **env)
 
 #endif
 
