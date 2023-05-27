@@ -108,7 +108,7 @@ void shell_setenv(char **args)
 	}
 	else
 	{
-		if (setenv(args[1], args[2], 1) != 0
+		if (setenv(args[1], args[2], 1) != 0)
 		{
 			write(STDERR_FILENO, "setenv: failed to set variable\n",
 			StringLength("setenv: failed to set variable\n"));
