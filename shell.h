@@ -49,6 +49,11 @@ int custom_environSize(void)
 unsigned int is_delim(char c, char *delim)
 char *my_strtok(char *srcString, char *delim)
 void execute_builtins(char **tokens, char **env)
+void execute_exit(char **tokens)
+void execute_env(char **env)
+int execute_cd(char **tokens)
+void shell_setenv(char **args)
+void shell_unsetenv(char **args)
 
 #endif
 
