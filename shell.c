@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 		{
 			write(STDOUT_FILENO, "#cisfun$ ", 9);
 		}
-		input = read_input();
+		input = reading_input();
 		if (input == NULL)
 		{
 			if (isatty(0))
@@ -103,11 +103,11 @@ char *command_checker(char **tokens)
 	else if (access(tokens[0], X_OK) != 0)
 	{
 		pathLL = path_list();
-		path = find_executable(tokens[0], pathLL);
+		path = finding_executable(tokens[0], pathLL);
 
 		if (path == NULL)
 		{
-			perror(myStrcat(tokens[0], ": command not found\n"));
+			perror(Str_cat(tokens[0], ": command not found\n"));
 		}
 		else
 		{

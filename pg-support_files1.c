@@ -57,7 +57,7 @@ int StringLength(const char *str)
 
 void writeStringToStderr(char *str)
 {
-	size_t len = getStringLength(str);
+	size_t len = StringLength(str);
 
 	write(STDERR_FILENO, str, len);
 }

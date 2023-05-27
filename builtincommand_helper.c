@@ -16,7 +16,7 @@ void execute_exit(char **tokens)
 	if (size > 2)
 	{
 		error_msg = "Error: too many arguments\n";
-		write(STDERR_FILENO, error_msg, getStringLength(error_msg));
+		write(STDERR_FILENO, error_msg, StringLength(error_msg));
 	}
 	else if (size == 2)
 	{
@@ -38,7 +38,7 @@ void execute_env(char **env)
 	{
 		size_t len;
 
-		len = getStringLength(*env);
+		len = StringLength(*env);
 		write(STDOUT_FILENO, *env, len);
 		write(STDOUT_FILENO, "\n", 1);
 		env++;
@@ -72,7 +72,7 @@ int execute_cd(char **tokens)
 			{
 				perror("cd");
 			}
-			write(STDERR_FILENO, folder_prev, getStringLength(folder_prev));
+			write(STDERR_FILENO, folder_prev, StringLength(folder_prev));
 			write(STDERR_FILENO, "\n", 1);
 		}
 	}
@@ -104,14 +104,14 @@ void shell_setenv(char **args)
 	if (args[1] == NULL || args[2] == NULL)
 	{
 		write(STDERR_FILENO, "setenv: invalid arguments\n",
-		getStringLength("setenv: invalid arguments\n"));
+		StringLength("setenv: invalid arguments\n"));
 	}
 	else
 	{
 		if (setenv(args[1], args[2], 1) != 0
 		{
 			write(STDERR_FILENO, "setenv: failed to set variable\n",
-			getStringLength("setenv: failed to set variable\n"));
+			StringLength("setenv: failed to set variable\n"));
 		}
 	}
 }
@@ -127,14 +127,14 @@ void shell_unsetenv(char **args)
 	if (args[1] == NULL)
 	{
 		write(STDERR_FILENO, "unsetenv: invalid arguments\n",
-		getStringLength("unsetenv: invalid arguments\n"));
+		StringLength("unsetenv: invalid arguments\n"));
 	}
 	else
 	{
 		if (unsetenv(args[1]) != 0)
 		{
 			write(STDERR_FILENO, "unsetenv: failed to unset variable\n",
-			getStringLength("unsetenv: failed to unset variable\n"));
+			StringLength("unsetenv: failed to unset variable\n"));
 		}
 	}
 }

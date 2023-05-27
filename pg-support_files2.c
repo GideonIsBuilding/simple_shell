@@ -18,8 +18,8 @@ char *concat_str(char *str1, char *str2)
 		perror("Failed to allocate memory for concatenated string");
 		exit(1);
 	}
-	result = myStrcpy(result, str1);
-	result = myStrcat(result, str2);
+	result = Str_cpy(result, str1);
+	result = Str_cat(result, str2);
 	return (result);
 }
 

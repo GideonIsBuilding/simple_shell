@@ -24,7 +24,7 @@ int custom_putenv(char *str)
 
 	for (i = 0, j = 0; environ[i] != NULL; i++)
 	{
-		if (myStrncmp(environ[i], str, custom_strchr(str, '=') - str) != 0)
+		if (Strn_cmp(environ[i], str, custom_strchr(str, '=') - str) != 0)
 		{
 			new_environ[j++] = environ[i];
 		}

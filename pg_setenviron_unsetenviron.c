@@ -13,17 +13,17 @@ int custom_setenv(const char *name, const char *value, int overwrite)
 	int result;
 	char *envstr;
 
-	envstr = (char *)malloc(getStringLength(name) + getStringLength(value) + 2);
+	envstr = (char *)malloc(StringLength(name) + StringLength(value) + 2);
 	if (!envstr)
 	{
 		return (-1);
 	}
 
-	myStrcpy(envstr, name);
-	myStrcat(envstr, "=");
-	myStrcat(envstr, value);
+	Str_cpy(envstr, name);
+	Str_cat(envstr, "=");
+	Str_cat(envstr, value);
 
-	if (_getenv(name))
+	if (get_env(name))
 	{
 		if (overwrite)
 		{
@@ -69,7 +69,7 @@ int custom_unsetenv(const char *name)
 		return (-1);
 	}
 
-	len = getStringLength(name);
+	len = StringLength(name);
 
 	newenvp = (char **)malloc(sizeof(char *) * (custom_environSize() + 1));
 	if (!newenvp)
@@ -79,7 +79,7 @@ int custom_unsetenv(const char *name)
 
 	for (i = 0, j = 0; envp[i]; i++)
 	{
-		if (myStrncmp(envp[i], name, len) != 0 || envp[i][len] != '=')
+		if (Strn_cmp(envp[i], name, len) != 0 || envp[i][len] != '=')
 		{
 			newenvp[j++] = envp[i];
 		}

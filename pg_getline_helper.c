@@ -29,7 +29,7 @@ char *allocate_buffer(size_t buf_size)
 
 char *expand_buffer(char *buf, size_t buf_size)
 {
-	char *newBuf = (char *) my_realloc(buf, buf_size);
+	char *newBuf = (char *) re_alloc(buf, buf_size);
 
 	buf_size *= 2;   /* double the size of the buffer */
 	if (newBuf == NULL)
