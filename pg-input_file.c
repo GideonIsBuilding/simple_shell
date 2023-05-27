@@ -8,7 +8,7 @@
  */
 int file_input(int argc, char **argv)
 {
-	char *input = NULL;         
+	char *input = NULL;
 	char *tokens[MAX_NUM_TOKENS];
 	int num_tokens;
 	size_t input_size = 0;
