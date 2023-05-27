@@ -21,7 +21,15 @@ int str_len(const char *s);
 void free_char_array(char **args);
 char *str_tok(char *str, const char *delim);
 ssize_t my_getline(char **lineptr, size_t *n, int fd)
-
+int main(int argc, char **argv)
+char *command_checker(char **tokens)
+int tokenize(char *input, char **tokens, int max_tokens)
+void execute(char **tokens)
+char *allocate_buffer(size_t buf_size)
+char *expand_buffer(char *buf, size_t buf_size)
+int is_empty_line(ssize_t len, char *buf)
+int handle_empty_line(char *buf, char **lineptr)
+void terminate_buffer(ssize_t len, char *buf)
 
 
 #endif
